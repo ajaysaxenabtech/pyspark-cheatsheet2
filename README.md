@@ -224,6 +224,7 @@ df = df.filter(df.name.like('Al%'))
 
 # Regex Like - col.rlike(regex)
 df = df.filter(df.name.rlike('[A-Z]*ice$'))
+df = df.filter(df.name.rlike("^[0-9]+(\.[0-9]+)?$"))
 
 # Is In List - col.isin(*cols)
 df = df.filter(df.name.isin('Bob', 'Mike'))
