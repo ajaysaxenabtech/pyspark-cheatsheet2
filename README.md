@@ -24,7 +24,7 @@ A quick reference guide to the most commonly used patterns and functions in PySp
     - [UDFs (User Defined Functions](#udfs-user-defined-functions)
 - [Useful Functions / Tranformations](#useful-functions--transformations)
 
-If you can't find what you're looking for, check out the [PySpark Official Documentation](https://spark.apache.org/docs/latest/api/python/pyspark.sql.html) and add it here!
+If you can't find what you're looking for, check out the [PySpark Official Documentation](https://spark.apache.org/docs/latest/api/python/reference/pyspark.sql/api/pyspark.sql.types.StructType.html) and add it here!
 
 ## Quickstart
 
