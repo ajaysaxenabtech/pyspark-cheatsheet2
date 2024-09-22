@@ -86,6 +86,8 @@ len(df.columns)
 # Write output to disk
 df.write.csv('/path/to/your/output/file')
 df.write.mode("overwrite").csv('/path/to/your/output/file')
+df.coalesce(1).write.mode('overwrite').csv('/path/to/output/folder', header=True)
+
 
 
 # Get results (WARNING: in-memory) as list of PySpark Rows
