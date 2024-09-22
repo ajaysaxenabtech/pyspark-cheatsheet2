@@ -87,6 +87,8 @@ len(df.columns)
 df.write.csv('/path/to/your/output/file')
 df.write.mode("overwrite").csv('/path/to/your/output/file')
 df.coalesce(1).write.mode('overwrite').csv('/path/to/output/folder', header=True)
+df.repartition(1).write.mode('overwrite').csv('/path/to/output/folder', header=True)
+
 
 
 
