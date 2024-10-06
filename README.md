@@ -385,6 +385,32 @@ df = df.groupBy('gender').agg(F.max('age').alias('max_age_by_gender'))
 # Collect a List of all Rows in Group:      F.collect_list(col)
 df = df.groupBy('age').agg(F.collect_set('name').alias('person_names'))
 
+#Pivot the DataFrame
+from pyspark.sql import functions as F
+
+# Sample data (assuming df is your original DataFrame)
+data = [
+    (30.0876, 'E - TIER I'),
+    (18.2044, 'C - TIER I'),
+    (17.9439, 'G - TIER I'),
+    (16.0077, 'A - TIER I'),
+    (17.6065, 'C - TIER II'),
+    (30.2500, 'E - TIER II'),
+    (17.2176, 'G - TIER II')
+]
+
+# Creating DataFrame
+df = spark.createDataFrame(data, ['nav', 'fund_name'])
+
+# Pivoting the DataFrame
+pivot_df = df.groupBy().pivot("fund_name").agg(F.first("nav"))
+
+pivot("fund_name"): Transforms the values in fund_name into column names.
+agg(F.first("nav")): Uses the first occurrence of nav as the value under each new column.
+groupBy(): No grouping key is needed here, so we just use groupBy() with no arguments.
+This will produce the output with each fund_name as a column and the respective nav values.
+
+
 # Just take the lastest row for each combination (Window Functions)
 from pyspark.sql import Window as W
 
