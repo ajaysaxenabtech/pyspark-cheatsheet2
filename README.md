@@ -429,7 +429,7 @@ df_cached = df.cache()
 #.persist(): Allows you to specify different storage levels, such as memory and disk, memory only, disk only, etc.
 from pyspark import StorageLevel
 df_persisted = df.persist(StorageLevel.MEMORY_AND_DISK)
-
+```python
 
 #### Repartitioning
 
