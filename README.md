@@ -422,6 +422,15 @@ df = df.drop("row_number")
 
 ## Advanced Operations
 
+#### .cache() Vs .persist()
+```python
+#.cache(): This is a shorthand for .persist() with the default storage level, which is MEMORY_ONLY. It stores the data in memory only.
+df_cached = df.cache()
+#.persist(): Allows you to specify different storage levels, such as memory and disk, memory only, disk only, etc.
+from pyspark import StorageLevel
+df_persisted = df.persist(StorageLevel.MEMORY_AND_DISK)
+
+
 #### Repartitioning
 
 ```python
