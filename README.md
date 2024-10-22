@@ -142,6 +142,15 @@ df = df.join(other_table, df.id == other_table.person_id, 'left')
 
 # Match on multiple columns
 df = df.join(other_table, ['first_name', 'last_name'], 'left')
+
+# Join two columns from different tables
+# Add index column to each DataFrame
+df1_with_index = df1.rdd.zipWithIndex().toDF(["col1", "index1"])
+df2_with_index = df2.rdd.zipWithIndex().toDF(["col2", "index2"])
+
+# Perform inner join on the index columns
+joined_df = df1_with_index.join(df2_with_index, df1_with_index.index1 == df2_with_index.index2).select("col1", "col2")
+
 ```
 
 #### Column Operations
